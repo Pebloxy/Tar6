@@ -3,7 +3,6 @@ import os
 import math
 import time
 
-# Variáveis declaradas fora do loop para manter o estado
 a = 0.0
 b = 0.0
 c = 0.0
