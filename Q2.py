@@ -1,33 +1,32 @@
-import math
+import sys
 
-numLados = 0
-medLados = 0
-area = 0
-perimetro = 0
+A = 0
+B = 0
+C = 0
+triangulo = False
 
-print ("Bem-Vindo a calculadora de polígonos")
-while True:
-    numLados = int (input ("Digite quantos lados tem seu polígono: "))
-    
-    if (numLados < 2):
-        print("NÃO É UM POLÍGONO")
+print("1 Ler e Exibir")
+print("2 Sair")
+tecla = input("item: ")
 
-    elif (numLados > 5):
-        print("POLÍGONO NÃO IDENTIFICADO")
-        
+if tecla == "1":
+    A = float(input("Digite A: "))
+    B = float(input("Digite B: "))
+    C = float(input("Digite C: "))
+
+    if (A < B + C) and (B < A + C) and (C < A + B):
+        triangulo = True
     else:
-        medLados = int (input ("Digite a medida dos lados do seu polígono: "))
-        if (numLados == 3):
-            print("TRIÂNGULO")
-            perimetro = (medLados * 3) / 2
-            area = math.sqrt(perimetro * ((perimetro - medLados) ** 3))
-            print(f"A área do triangulo é aproximadamente {round(area, 2)}")
-        if (numLados == 4):
-            print("QUADRADO")
-            area = medLados ** 2
-            print(f"A área do quadrado é {round(area, 2)}")
-        if (numLados == 5):
-            print("PENTÁGONO")
-            area = 1.72 * (medLados ** 2)
-            print(f"A área do pentágono é aproximadamente {round(area, 2)}")
-        break
+        triangulo = False
+
+    if triangulo == True:
+        print("Trata-se de um Triângulo!")
+    else:
+        print("Uma figura qualquer de três lados")
+
+    print("\nPrograma Finalizado!")
+
+elif tecla == "2":
+    print("\nPrograma Finalizado!")
+
+sys.exit()
